@@ -1,0 +1,9 @@
+= Solution
+
+== Not finished with the exercises yet...? Try a little more before you look here :)
+
+This appication forms a combined solution for all the exercises in this course.
+Feel free to use it as a reference or starting point when creating applications.
+
+*NOTE* that it is a sample application everything may not be entirely production ready.
+
