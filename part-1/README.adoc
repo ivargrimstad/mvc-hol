@@ -1,0 +1,20 @@
+= Part 1
+
+== Create a simple MVC 1.0 Project
+
+Using the tools at hand, create a simple Maven based Java EE 7 web application with the minimum of configuration.
+The project shall display a welcome page and run on WildFly as well as Glassfish. Context for the application
+shall be *part-1*. 
+
+ http://localhost:8080/part-1
+
+=== Objectives
+
+- [ ] Learn how to set up a MVC 1.0 project
+- [ ] Understand the difference between vendor specific and standard configuration
+
+=== Resources
+
+- [ ] The IDE is a powerful tool
+- [ ] Simple is beautiful
+- [ ] Do I really need this?
