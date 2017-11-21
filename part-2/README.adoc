@@ -1,9 +1,29 @@
 = Part 2
 
-== <tbd>
-
+In this part you will extend your MVC 1.0 application with more of the supported features of MVC 1.0. 
 
 === Objectives
+
+- [ ]
+
+=== Instructions
+
+Query Parameters::
+Extend the controller from part 1 to read in a name from a query parameter. 
+Use this name to create a personalized greeting, such as 'Hello Duke'.
++
+http://localhost:8080/mvc-hol/part-2?name=Duke
+
+TIP: MVC 1.0 builds on JAX-RS
+
+Form Parameters::
+Add a form to your application and submit the paramters to the controller from the form.
++
+http://localhost:8080/mvc-hol/part-2/hello
+
+TIP: A method may be a controller in MVC 1.0 
+
+
 
 === Resources
 
