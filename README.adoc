@@ -7,7 +7,7 @@
     ** link:part-2/README.adoc[Part 2]
     ** link:part-3/README.adoc[Part 3]
  * Solution
-    ** Don't look link:solution:README.adoc[here] before you have completed the workshop...
+    ** Don't look link:solution/README.adoc[here] before you have completed the workshop...
 
 == Structure
 The lab will be structured as a practical workshop where participants work with practical exercises
