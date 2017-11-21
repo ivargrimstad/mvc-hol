@@ -2,15 +2,21 @@
 
 == Create a simple MVC 1.0 Project
 
-Using the tools at hand, create a simple Maven based MVC 1.0 web application with the minimum of configuration.
-The project shall display a welcome page.
-
- http://localhost:8080/part-1
+In this excersice, you will learn how to set up and configure a simple MVC 1.0 application.
 
 === Objectives
 
 - [ ] Learn how to set up a MVC 1.0 project
 - [ ] Understand the difference between vendor specific and standard configuration
+
+Using the tools at hand, create a simple Maven based MVC 1.0 web application with the minimum of configuration.
+The project shall display a welcome page and be able to run on both GlassFish 5 and WildFly 11. 
+
+ http://localhost:8080/mvc-hol/part-1
+
+Choose one of the view tecnologies supported by Ozark.
+
+TIP: Ozark is split into separate dependencies for running with Jersey and RESTEasy respectively.
 
 === Resources
 
