@@ -1,9 +1,21 @@
-= Part 3
+= Part 3 - Useful MVC 1.0 features
 
-== <tbd>
+== Objectives
 
+- [ ] Learn about scopes
 
-=== Objectives
+== Instructions
 
-=== Resources
+http://localhost:8080/mvc-hol/app/part-3
 
+=== Redirects
+Implement the POST-Redirect-GET pattern in your application using the available features of MVC 1.0
+
+TIP: MVC 1.0 defines a custom CDI Scope called `RedirectScoped`
+
+=== Events
+Add observers for the default events produces by MVC 1.0 implementations.
+
+== Resources
+
+- [ ] JSR 371 Specification Document sections

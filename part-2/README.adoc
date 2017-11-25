@@ -1,29 +1,32 @@
-= Part 2
+= Part 2 - The Core MVC 1.0 Features
 
 In this part you will extend your MVC 1.0 application with more of the supported features of MVC 1.0. 
 
-=== Objectives
+== Objectives
 
-- [ ]
+- [ ] Eplore MVC 1.0
+- [ ] Learn about input validation and error handling
 
-=== Instructions
+== Instructions
 
-Query Parameters::
-Extend the controller from part 1 to read in a name from a query parameter. 
-Use this name to create a personalized greeting, such as 'Hello Duke'.
-+
-http://localhost:8080/mvc-hol/part-2?name=Duke
+http://localhost:8080/mvc-hol/app/part-2
 
-TIP: MVC 1.0 builds on JAX-RS
-
-Form Parameters::
-Add a form to your application and submit the paramters to the controller from the form.
-+
-http://localhost:8080/mvc-hol/part-2/hello
+=== Form Parameters
+Add a form to your application and submit the paramters to the controller from the form. Use the parameters to
+construct a message to display.
 
 TIP: A method may be a controller in MVC 1.0 
 
+=== Input Validation
+Add Bean validation to your form bean. Handle the validation errors individually for each field in your form in order
+to create a better user experience.
 
+TIP: The default validation errr handling in JAX-RS is a one-size-fits-all approach
 
-=== Resources
+=== Security
+Add protection against Cross-Site Request Forgery to your application.
+
+== Resources
+
+- [ ] JSR 371 Specification Document sections
 
