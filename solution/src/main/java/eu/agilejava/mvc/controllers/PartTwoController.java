@@ -23,13 +23,10 @@
  */
 package eu.agilejava.mvc.controllers;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.mvc.Models;
-import javax.mvc.MvcContext;
 import javax.mvc.annotation.Controller;
 import javax.mvc.annotation.CsrfValid;
-import javax.mvc.event.BeforeControllerEvent;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -46,31 +43,15 @@ public class PartTwoController {
     @Inject
     private Models model;
 
-    @Inject
-    private MvcContext mvc;
-
     @GET
     public String view() {
-        return "form.jsp";
+        return "part_2_form.jsp";
     }
 
     @CsrfValid
     @POST
     public String hello(@FormParam("name") String name) {
-
-        String language = mvc.getLocale().getLanguage();
-        
-        model.put("message", "Hello " + name + " in " + language );
-        return "hello.jsp";
-    }
-    // return form.jsp from @GET
-    // @POST method with form param name
-    // add models
-    // add csrf
-    // locale
-    // events
-    
-    public void log(@Observes BeforeControllerEvent bce) {
-        System.out.println("Before Controller " + bce.getUriInfo().getAbsolutePath().getPath());
+        model.put("message", "Hello " + name);
+        return "part_1_hello.jsp";
     }
 }
