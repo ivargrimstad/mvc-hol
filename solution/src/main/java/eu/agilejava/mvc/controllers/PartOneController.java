@@ -26,8 +26,10 @@ package eu.agilejava.mvc.controllers;
 import javax.inject.Inject;
 import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -39,13 +41,10 @@ public class PartOneController {
 
     @Inject
     private Models model;
-    
+
     @GET
-    public String view() {
-        model.put("message", "Malmö");
-        return "hello.jsp";
+    public String view(@QueryParam("name") @DefaultValue("Duke") String name) {
+        model.put("message", "Hello " + name);
+        return "part_1_hello.jsp";
     }
-    
-    // Add model
-    // Update view
 }
