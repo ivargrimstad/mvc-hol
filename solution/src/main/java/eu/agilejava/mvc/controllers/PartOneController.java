@@ -21,43 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.config;
+package eu.agilejava.mvc.controllers;
 
-import eu.agilejava.mvc.controllers.PartOneController;
-import eu.agilejava.mvc.controllers.PartTwoController;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import javax.mvc.security.Csrf;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-import org.mvcspec.ozark.Properties;
+import javax.inject.Inject;
+import javax.mvc.Models;
+import javax.mvc.annotation.Controller;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@ApplicationPath("app")
-public class ApplicationConfig extends Application {
+@Path("part-1")
+@Controller
+public class PartOneController {
 
-    @Override
-    public Set<Class<?>> getClasses() {
-        final Set<Class<?>> set = new HashSet<>();
-        set.add(PartOneController.class);
-        set.add(PartTwoController.class);
-        return set;
+    @Inject
+    private Models model;
+    
+    @GET
+    public String view() {
+        model.put("message", "Malmö");
+        return "hello.jsp";
     }
-
-    @Override
-    public Map<String, Object> getProperties() {
-        final Map<String, Object> map = new HashMap<>();
-
-        // use cookie for redirect
-        map.put(Properties.REDIRECT_SCOPE_COOKIES, true);
-
-        // explicit CSRF Protection
-        map.put(Csrf.CSRF_PROTECTION, Csrf.CsrfOptions.EXPLICIT);
-        return map;
-    }
+    
+    // Add model
+    // Update view
 }
