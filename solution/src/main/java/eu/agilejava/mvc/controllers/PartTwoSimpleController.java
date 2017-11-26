@@ -26,7 +26,7 @@ package eu.agilejava.mvc.controllers;
 import javax.inject.Inject;
 import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
-import javax.mvc.annotation.CsrfValid;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -37,8 +37,8 @@ import javax.ws.rs.Path;
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
 @Controller
-@Path("part-2")
-public class PartTwoController {
+@Path("part-2/simple")
+public class PartTwoSimpleController {
 
     @Inject
     private Models model;
@@ -48,10 +48,8 @@ public class PartTwoController {
         return "part_2_simple_form.jsp";
     }
 
-    @CsrfValid
     @POST
-    @Path("simple")
-    public String hello(@FormParam("name") String name) {
+    public String hello(@FormParam("name") @DefaultValue("Duke") String name) {
         model.put("message", "Hello " + name);
         return "part_2_simple_hello.jsp";
     }

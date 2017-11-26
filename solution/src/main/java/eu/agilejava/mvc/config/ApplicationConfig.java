@@ -24,7 +24,7 @@
 package eu.agilejava.mvc.config;
 
 import eu.agilejava.mvc.controllers.PartOneController;
-import eu.agilejava.mvc.controllers.PartTwoController;
+import eu.agilejava.mvc.controllers.PartTwoSimpleController;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> set = new HashSet<>();
         set.add(PartOneController.class);
-        set.add(PartTwoController.class);
+        set.add(PartTwoSimpleController.class);
         return set;
     }
 
