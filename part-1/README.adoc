@@ -28,4 +28,4 @@ TIP: MVC 1.0 builds on JAX-RS
 
 == Resources
 
-- [ ] JSR 371 Specification Document sections
+- [ ] JSR 371 Specification Document sections link:https://github.com/mvc-spec/mvc-spec/blob/master/spec/src/main/asciidoc/chapters/controllers.asciidoc[Controllers]
