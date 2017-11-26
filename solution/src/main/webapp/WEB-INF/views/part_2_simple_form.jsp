@@ -15,7 +15,7 @@
     <body>
         <h1>Simple Form</h1>
         
-        <form method="post" action="part-2">
+        <form method="post" action="part-2/simple">
             Name: <input type="text" name="name"/>
             <input type ="submit"/>
             <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>

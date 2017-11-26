@@ -36,8 +36,8 @@ import javax.ws.rs.Path;
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Path("part-2")
 @Controller
+@Path("part-2")
 public class PartTwoController {
 
     @Inject
@@ -45,13 +45,14 @@ public class PartTwoController {
 
     @GET
     public String view() {
-        return "part_2_form.jsp";
+        return "part_2_simple_form.jsp";
     }
 
     @CsrfValid
     @POST
+    @Path("simple")
     public String hello(@FormParam("name") String name) {
         model.put("message", "Hello " + name);
-        return "part_1_hello.jsp";
+        return "part_2_simple_hello.jsp";
     }
 }

@@ -35,8 +35,8 @@ import javax.ws.rs.QueryParam;
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Path("part-1")
 @Controller
+@Path("part-1")
 public class PartOneController {
 
     @Inject
