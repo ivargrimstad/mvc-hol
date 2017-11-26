@@ -24,6 +24,7 @@
 package eu.agilejava.mvc.config;
 
 import eu.agilejava.mvc.part1.PartOneController;
+import eu.agilejava.mvc.part2.PartTwoAdvancedController;
 import eu.agilejava.mvc.part3.ConfirmationController;
 import eu.agilejava.mvc.part2.PartTwoSimpleController;
 import eu.agilejava.mvc.part3.ReservationController;
@@ -48,6 +49,7 @@ public class ApplicationConfig extends Application {
         final Set<Class<?>> set = new HashSet<>();
         set.add(PartOneController.class);
         set.add(PartTwoSimpleController.class);
+        set.add(PartTwoAdvancedController.class);
         set.add(ReservationController.class);
         set.add(ConfirmationController.class);
         set.add(PrimitiveConverterProvider.class);
