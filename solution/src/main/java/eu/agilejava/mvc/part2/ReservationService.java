@@ -21,48 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.config;
+package eu.agilejava.mvc.part2;
 
-import eu.agilejava.mvc.part1.PartOneController;
-import eu.agilejava.mvc.part2.ConfirmationController;
-import eu.agilejava.mvc.part2.PartTwoSimpleController;
-import eu.agilejava.mvc.part2.ReservationController;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
-import javax.mvc.security.Csrf;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-import org.mvcspec.ozark.Properties;
+import java.util.UUID;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@ApplicationPath("app")
-public class ApplicationConfig extends Application {
+@Named
+@Singleton
+public class ReservationService {
+    
+    private final Set<Reservation> reservations =  new HashSet<>();;
 
-    @Override
-    public Set<Class<?>> getClasses() {
-        final Set<Class<?>> set = new HashSet<>();
-        set.add(PartOneController.class);
-        set.add(PartTwoSimpleController.class);
-        set.add(ReservationController.class);
-        set.add(ConfirmationController.class);
-        set.add(PrimitiveConverterProvider.class);
-        return set;
-    }
-
-    @Override
-    public Map<String, Object> getProperties() {
-        final Map<String, Object> map = new HashMap<>();
-
-        // use cookie for redirect
-        map.put(Properties.REDIRECT_SCOPE_COOKIES, true);
-
-        // explicit CSRF Protection
-        map.put(Csrf.CSRF_PROTECTION, Csrf.CsrfOptions.EXPLICIT);
-        return map;
+    public Reservation save(@NotNull Reservation reservation) {
+        
+        if(reservation.getId() == null || reservation.getId().isEmpty() ) {
+            reservation.setId(UUID.randomUUID().toString());
+        }
+        
+        reservations.remove(reservation);
+        reservations.add(reservation);
+        
+        return reservation;
     }
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.controllers;
+package eu.agilejava.mvc.part1;
 
 import javax.inject.Inject;
 import javax.mvc.Models;

@@ -21,15 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.controllers;
+package eu.agilejava.mvc.part2;
 
 import javax.inject.Inject;
-import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.FormParam;
+import javax.mvc.annotation.View;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 /**
@@ -37,20 +34,15 @@ import javax.ws.rs.Path;
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
 @Controller
-@Path("part-2/simple")
-public class PartTwoSimpleController {
-
+@Path("confirmation")
+public class ConfirmationController {
+    
     @Inject
-    private Models model;
-
+    private Reservation reservation;
+    
     @GET
-    public String view() {
-        return "part_2_simple_form.jsp";
-    }
-
-    @POST
-    public String hello(@FormParam("name") @DefaultValue("Duke") String name) {
-        model.put("message", "Hello " + name);
-        return "part_2_simple_hello.jsp";
+    @View("part_2_confirmation.jsp")
+    public void confirm() {
+    
     }
 }
