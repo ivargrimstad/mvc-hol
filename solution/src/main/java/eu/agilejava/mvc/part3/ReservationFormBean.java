@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.part2;
+package eu.agilejava.mvc.part3;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

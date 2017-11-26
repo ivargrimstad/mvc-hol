@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.agilejava.mvc.part2;
+package eu.agilejava.mvc.part3;
 
 import java.io.Serializable;
 import java.util.ArrayList;

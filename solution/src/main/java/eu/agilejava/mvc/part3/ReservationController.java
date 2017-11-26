@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.part2;
+package eu.agilejava.mvc.part3;
 
 import static java.util.stream.Collectors.toList;
 import javax.inject.Inject;
@@ -60,7 +60,7 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GET
-    @View("part_2_reservation_form.jsp")
+    @View("part_3_reservation_form.jsp")
     @Path("new")
     public void emptyReservation() {
     }
@@ -82,7 +82,7 @@ public class ReservationController {
                     br.getAllValidationErrors().stream()
                             .collect(toList()));
 
-            return Response.status(BAD_REQUEST).entity("part_2_reservation_form.jsp").build();
+            return Response.status(BAD_REQUEST).entity("part_3_reservation_form.jsp").build();
         }
         System.out.println(reservation.isOutside());
         reservationService.save(reservation);

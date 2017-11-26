@@ -24,9 +24,9 @@
 package eu.agilejava.mvc.config;
 
 import eu.agilejava.mvc.part1.PartOneController;
-import eu.agilejava.mvc.part2.ConfirmationController;
-import eu.agilejava.mvc.part2.PartTwoSimpleController;
-import eu.agilejava.mvc.part2.ReservationController;
+import eu.agilejava.mvc.part3.ConfirmationController;
+import eu.agilejava.mvc.part3.PartTwoSimpleController;
+import eu.agilejava.mvc.part3.ReservationController;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

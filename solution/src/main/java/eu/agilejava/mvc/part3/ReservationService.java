@@ -21,36 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.part2;
+package eu.agilejava.mvc.part3;
 
-import javax.inject.Inject;
-import javax.mvc.Models;
-import javax.mvc.annotation.Controller;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Controller
-@Path("part-2/simple")
-public class PartTwoSimpleController {
+@Named
+@Singleton
+public class ReservationService {
+    
+    private final Set<Reservation> reservations =  new HashSet<>();;
 
-    @Inject
-    private Models model;
-
-    @GET
-    public String view() {
-        return "part_2_simple_form.jsp";
-    }
-
-    @POST
-    public String hello(@FormParam("name") @DefaultValue("Duke") String name) {
-        model.put("message", "Hello " + name);
-        return "part_2_simple_hello.jsp";
+    public Reservation save(@NotNull Reservation reservation) {
+        
+        if(reservation.getId() == null || reservation.getId().isEmpty() ) {
+            reservation.setId(UUID.randomUUID().toString());
+        }
+        
+        reservations.remove(reservation);
+        reservations.add(reservation);
+        
+        return reservation;
     }
 }
