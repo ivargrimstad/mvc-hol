@@ -23,6 +23,10 @@
  */
 package eu.agilejava.mvc;
 
+import java.time.LocalDate;
+import static java.time.LocalDate.parse;
+import java.time.format.DateTimeFormatter;
+import static java.time.temporal.ChronoUnit.DAYS;
 import javax.enterprise.context.RequestScoped;
 
 /**
@@ -31,10 +35,16 @@ import javax.enterprise.context.RequestScoped;
  */
 @RequestScoped
 public class BirthDayService {
-    
-    
+
     public int calculateDaysToBirthday(final String birthDate) {
-     
-        return 0;
-    }    
+
+        final LocalDate now = LocalDate.now();
+        final LocalDate bdThisYear = parse(birthDate, DateTimeFormatter.ISO_DATE).withYear(now.getYear());        
+        
+        if (bdThisYear.isAfter(now)) {
+            return (int) now.until(bdThisYear, DAYS);
+        } else {
+            return (int) now.until(bdThisYear.plusYears(1), DAYS);
+        }
+    }
 }

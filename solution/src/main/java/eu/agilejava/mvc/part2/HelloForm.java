@@ -49,8 +49,9 @@ public class HelloForm {
     @FormParam("country")
     private String country;
 
+    @NotNull
     @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "Enter a valid date")
-    @FormParam("date")
+    @FormParam("birthDate")
     private String birthDate;
 
     public String getFirstName() {
