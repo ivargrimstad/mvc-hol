@@ -77,6 +77,7 @@ public class PartTwoAdvancedController {
         greeting.setCountry(helloForm.getCountry());
         greeting.setDaysToBirthday(birthdayService.calculateDaysToBirthday(helloForm.getBirthDate()));
         greeting.setUuid(UUID.randomUUID().toString());
+        
         return "part_2_advanced_hello.jsp";
     }
 }

@@ -1,4 +1,4 @@
-= Part 2 - The Core MVC 1.0 Features
+= Part 2 - Core MVC 1.0 Features
 
 In this part you will extend your MVC 1.0 application with more of the supported features of MVC 1.0. 
 
@@ -84,6 +84,9 @@ public class BirthDayService {
     }
 }
 ```
+
+== i18n
+Duke wants 
 
 == Resources
 
