@@ -50,7 +50,7 @@ public class PartTwoSimpleController {
 
     @POST
     public String hello(@FormParam("name") @DefaultValue("Duke") String name) {
-        model.put("message", "Hello " + name);
+        model.put("message", "Hello, " + name);
         return "part_2_simple_hello.jsp";
     }
 }

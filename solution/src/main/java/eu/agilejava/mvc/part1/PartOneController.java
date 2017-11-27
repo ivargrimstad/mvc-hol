@@ -44,7 +44,7 @@ public class PartOneController {
 
     @GET
     public String view(@QueryParam("name") @DefaultValue("Duke") String name) {
-        model.put("message", "Hello " + name);
+        model.put("message", "Hello, " + name);
         return "part_1_hello.jsp";
     }
 }

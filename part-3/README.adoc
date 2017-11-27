@@ -3,10 +3,18 @@
 == Objectives
 
 - [ ] Learn about scopes
+- [ ] Protect your MVC 1.0 application
 
 == Instructions
+Duke don't want anyone to tamper with his birthday greeting.
+Add security to your birthday calculator to protect against Cross-Site Request Forgery. 
 
+```
 http://localhost:8080/mvc-hol/app/part-3
+Hello, Duke Dukeson from Sweden
+Your birthday is in [x] days!
+A greeting is registered with id: [UUID]
+```
 
 === Security
 Add protection against Cross-Site Request Forgery to your application.
@@ -14,6 +22,7 @@ Add protection against Cross-Site Request Forgery to your application.
 TIP: Check out the `@CsrfValid` annotation provided by MVC 1.0
 
 === Redirects
+
 Implement the POST-Redirect-GET pattern in your application using the available features of MVC 1.0
 
 TIP: MVC 1.0 defines a custom CDI Scope called `RedirectScoped`

@@ -14,18 +14,27 @@ In this part you will extend your MVC 1.0 application with more of the supported
 Create a simple form and submit the name to the controller from the form. Use the form parameter to
 construct a message to display.
 
+```
 http://localhost:8080/mvc-hol/app/part-2/simple
+Hello, Duke!
+```
 
 TIP: A method may be a controller in MVC 1.0
 
 === Input Validation
 Create a more advanced form with more parameters: First Name, Last Name, Country, Birth Date. Use a form bean to submit the
-parameters to the controller.
+parameters to the controller. Add Bean validation to your form bean. Handle the validation errors individually for each field in your form in order
+to create a better user experience. Calculate the days to next birthday and display this on the greetings page. 
+Use a CDI bean to represent the model.
 
+The result after the form submission should be
+
+```
 http://localhost:8080/mvc-hol/app/part-2/advanced
-
-Add Bean validation to your form bean. Handle the validation errors individually for each field in your form in order
-to create a better user experience.
+Hello, Duke Dukeson from Sweden
+Your birthday is in [x] days!
+A greeting is registered with id: [UUID]
+```
 
 TIP: The default validation error handling in JAX-RS is a one-size-fits-all approach.
 
@@ -57,7 +66,6 @@ public class Messages implements Serializable {
     }
 }
 ```
-Calculate the days to next birthday and display this on the greetings page. Use a CDI bean to represent the model.
 
 ``` Sample Service for calculating days to birthday
 @RequestScoped
