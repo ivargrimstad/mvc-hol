@@ -30,7 +30,7 @@ import javax.inject.Named;
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Named("greeting")
+@Named("greetings")
 @RequestScoped
 public class GreetingsBean {
 

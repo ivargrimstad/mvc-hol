@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Ivar Grimstad (ivar.grimstad@gmail.com).
+ * Copyright 2017 Ivar Grimstad (ivar.grimstad@gmail.com).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,6 @@
  */
 package eu.agilejava.mvc.part3;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -34,65 +32,57 @@ import javax.ws.rs.FormParam;
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-public class ReservationFormBean {
+public class HelloForm {
 
-    @FormParam("id") 
-    private String id;
-    
     @NotNull
-    @Size(min = 2)
-    @FormParam("name")
-    private String contact;
+    @Size(min = 2, max = 30)
+    @FormParam("firstName")
+    private String firstName;
 
-    @Min(1)
-    @Max(10)
-    @FormParam("count")
-    private int count;
+    @NotNull
+    @Size(min = 2, max = 30)
+    @FormParam("lastName")
+    private String lastName;
 
+    @NotNull
+    @Size(min = 3)
+    @FormParam("country")
+    private String country;
+
+    @NotNull
     @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "Enter a valid date")
-    @FormParam("date")
-    private String date;
+    @FormParam("birthDate")
+    private String birthDate;
 
-    @FormParam("outside")
-    private boolean outside;
-    
-    public String getId() {
-        return id;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getContact() {
-        return contact;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public int getCount() {
-        return count;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getDate() {
-        return date;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public boolean isOutside() {
-        return outside;
-    }
-
-    public void setOutside(boolean outside) {
-        this.outside = outside;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 }

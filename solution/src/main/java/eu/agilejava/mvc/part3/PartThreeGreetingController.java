@@ -23,7 +23,9 @@
  */
 package eu.agilejava.mvc.part3;
 
+import eu.agilejava.mvc.BirthDayService;
 import eu.agilejava.mvc.Messages;
+import java.util.UUID;
 import static java.util.stream.Collectors.toList;
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
@@ -45,46 +47,44 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
 @Controller
-@Path("reservations")
-public class BirthdayRegistrationController {
+@Path("part-3/greeting")
+public class PartThreeGreetingController {
 
     @Inject
-    private Reservation reservation;
-
-    @Inject
-    private BindingResult br;
+    private Greeting greeting;
 
     @Inject
     private Messages messages;
 
     @Inject
-    private ReservationService reservationService;
+    private BindingResult br;
 
+    @Inject
+    private BirthDayService birthdayService;
+    
     @GET
-    @View("part_3_reservation_form.jsp")
+    @View("part_3_greetings_form.jsp")
     @Path("new")
-    public void emptyReservation() {
+    public void view() {
     }
 
     @CsrfValid
     @POST
     @Path("new")
     @ValidateOnExecution(type = NONE)
-    public Response createReservation(@Valid @BeanParam ReservationFormBean form) {
-
-        reservation.setId(form.getId());
-        reservation.setName(form.getContact());
-        reservation.setCount(form.getCount());
-        reservation.setDate(form.getDate());
-        reservation.setOutside(form.isOutside());
+    public Response hello(@Valid @BeanParam HelloForm helloForm) {
 
         if (br.isFailed()) {
             messages.setErrors(br.getAllValidationErrors().stream().collect(toList()));
-            return Response.status(BAD_REQUEST).entity("part_3_reservation_form.jsp").build();
+            return Response.status(BAD_REQUEST).entity( "part_3_greetings_form.jsp").build();
         }
-        
-        reservationService.save(reservation);
 
-        return Response.ok("redirect:confirmation").build();
+        greeting.setFirstName(helloForm.getFirstName());
+        greeting.setLastName(helloForm.getLastName());
+        greeting.setCountry(helloForm.getCountry());
+        greeting.setDaysToBirthday(birthdayService.calculateDaysToBirthday(helloForm.getBirthDate()));
+        greeting.setUuid(UUID.randomUUID().toString());
+
+        return Response.ok("redirect:part-3/confirmation").build();
     }
 }

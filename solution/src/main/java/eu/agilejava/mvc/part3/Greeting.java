@@ -23,33 +23,64 @@
  */
 package eu.agilejava.mvc.part3;
 
-import javax.inject.Inject;
-import javax.mvc.annotation.Controller;
-import javax.mvc.annotation.View;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import java.io.Serializable;
+import javax.inject.Named;
+import javax.mvc.annotation.RedirectScoped;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Controller
-@Path("confirmation")
-public class ConfirmationController {
-    
-    @Inject
-    private Reservation reservation;
-    
-    @GET
-    @View("part_3_confirmation.jsp")
-    public void display() {
-    
+@Named("greeting")
+@RedirectScoped
+public class Greeting implements Serializable {
+
+    private static final long serialVersionUID = 14251687878745433L;
+
+    private String uuid;
+    private String firstName;
+    private String lastName;
+    private String country;
+    private int daysToBirthday;
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
     
-    @POST
-    public String confirm() {
-        
-        return "part_3_greeeings_jsp";
+    public String getFirstName() {
+        return firstName;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getDaysToBirthday() {
+        return daysToBirthday;
+    }
+
+    public void setDaysToBirthday(int daysToBirthday) {
+        this.daysToBirthday = daysToBirthday;
+    }
+
 }

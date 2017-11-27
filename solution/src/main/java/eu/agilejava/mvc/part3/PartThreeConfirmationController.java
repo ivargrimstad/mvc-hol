@@ -23,63 +23,29 @@
  */
 package eu.agilejava.mvc.part3;
 
-import java.io.Serializable;
-import javax.inject.Named;
-import javax.mvc.annotation.RedirectScoped;
+import javax.inject.Inject;
+import javax.mvc.annotation.Controller;
+import javax.mvc.annotation.View;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Named
-@RedirectScoped
-public class Reservation implements Serializable {
+@Controller
+@Path("part-3/confirmation")
+public class PartThreeConfirmationController {
 
-    private static final long serialVersionUID = 14251616245433L;
+    @Inject
+    private Greeting greeting;
 
-    private String id;
-    private String name;
-    private int count;
-    private String date;
-    private boolean outside;
-    
-    public String getId() {
-        return id;
+    @GET
+    public String display() {
+        if(greeting.getUuid() == null) {
+            return "part_3_greetings_form.jsp";
+        }
+        return "part_3_confirmation.jsp";
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public boolean isOutside() {
-        return outside;
-    }
-
-    public void setOutside(boolean outside) {
-        this.outside = outside;
-    }    
 }

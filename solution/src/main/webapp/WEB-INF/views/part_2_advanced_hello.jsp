@@ -7,7 +7,7 @@
         <title>Simple MVC 1.0 Sample</title>
     </head>
     <body>
-        <h1>Hello ${greeting.firstName} ${greeting.lastName} from ${greeting.country}</h1>
-        <p>Your birthday is in ${greeting.daysToBirthday} days!</p>
+        <h1>Hello ${greetings.firstName} ${greetings.lastName} from ${greetings.country}</h1>
+        <p>Your birthday is in ${greetings.daysToBirthday} days!</p>
     </body>
 </html>
