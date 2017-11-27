@@ -6,27 +6,80 @@ In this part you will extend your MVC 1.0 application with more of the supported
 
 - [ ] Eplore MVC 1.0
 - [ ] Learn about input validation and error handling
+- [ ] Integration with CDI
 
 == Instructions
 
-http://localhost:8080/mvc-hol/app/part-2
-
 === Form Parameters
-Add a form to your application and submit the paramters to the controller from the form. Use the parameters to
+Create a simple form and submit the name to the controller from the form. Use the form parameter to
 construct a message to display.
 
-TIP: A method may be a controller in MVC 1.0 
+http://localhost:8080/mvc-hol/app/part-2/simple
+
+TIP: A method may be a controller in MVC 1.0
 
 === Input Validation
+Create a more advanced form with more parameters: First Name, Last Name, Country, Birth Date. Use a form bean to submit the
+parameters to the controller.
+
+http://localhost:8080/mvc-hol/app/part-2/advanced
+
 Add Bean validation to your form bean. Handle the validation errors individually for each field in your form in order
 to create a better user experience.
 
-TIP: The default validation errr handling in JAX-RS is a one-size-fits-all approach
+TIP: The default validation error handling in JAX-RS is a one-size-fits-all approach.
 
-=== Security
-Add protection against Cross-Site Request Forgery to your application.
+``` Sample convenience Class for messages
+@Named
+@RequestScoped
+public class Messages implements Serializable {
+
+    private static final long serialVersionUID = 601263646224546642L;
+
+    private List<ValidationError> errors = new ArrayList<>();
+
+    public void setErrors(List<ValidationError> messages) {
+        this.errors = messages;
+    }
+    
+    public List<String> getErrors() {
+        return errors.stream()
+                .map(ValidationError::getMessage)
+                .collect(toList());
+    }
+    
+    public String getMessage(String param) {
+        return errors.stream()
+                .filter(v -> v.getParamName().equals(param))
+                .map(ValidationError::getMessage)
+                .findFirst()
+                .orElse("");
+    }
+}
+```
+Calculate the days to next birthday and display this on the greetings page. Use a CDI bean to represent the model.
+
+``` Sample Service for calculating days to birthday
+@RequestScoped
+public class BirthDayService {
+
+    public int calculateDaysToBirthday(final String birthDate) {
+
+        final LocalDate now = LocalDate.now();
+        final LocalDate bdThisYear = parse(birthDate, DateTimeFormatter.ISO_DATE).withYear(now.getYear());        
+        
+        if (bdThisYear.isAfter(now)) {
+            return (int) now.until(bdThisYear, DAYS);
+        } else {
+            return (int) now.until(bdThisYear.plusYears(1), DAYS);
+        }
+    }
+}
+```
 
 == Resources
 
+- [ ] Introduction slides
 - [ ] JSR 371 Specification Document sections
+- [ ]
 

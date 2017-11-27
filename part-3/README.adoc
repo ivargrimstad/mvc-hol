@@ -8,6 +8,11 @@
 
 http://localhost:8080/mvc-hol/app/part-3
 
+=== Security
+Add protection against Cross-Site Request Forgery to your application.
+
+TIP: Check out the `@CsrfValid` annotation provided by MVC 1.0
+
 === Redirects
 Implement the POST-Redirect-GET pattern in your application using the available features of MVC 1.0
 
@@ -18,4 +23,5 @@ Add observers for the default events produces by MVC 1.0 implementations.
 
 == Resources
 
+- [ ] Introduction slides
 - [ ] JSR 371 Specification Document sections
