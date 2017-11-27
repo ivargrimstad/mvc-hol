@@ -26,12 +26,9 @@ package eu.agilejava.mvc.part2;
 import eu.agilejava.mvc.BirthDayService;
 import eu.agilejava.mvc.Messages;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
-import javax.mvc.annotation.CsrfValid;
 import javax.mvc.binding.BindingResult;
-import javax.mvc.binding.ValidationError;
 import javax.validation.Valid;
 import static javax.validation.executable.ExecutableType.NONE;
 import javax.validation.executable.ValidateOnExecution;
@@ -65,15 +62,12 @@ public class PartTwoAdvancedController {
         return "part_2_advanced_form.jsp";
     }
 
-    @CsrfValid
     @POST
     @ValidateOnExecution(type = NONE)
     public String hello(@Valid @BeanParam HelloForm helloForm) {
 
         if (br.isFailed()) {
-            
             messages.setErrors(br.getAllValidationErrors().stream().collect(toList()));
-
             return "part_2_advanced_form.jsp";
         }
 

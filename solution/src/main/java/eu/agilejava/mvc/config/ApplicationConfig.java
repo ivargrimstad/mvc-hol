@@ -27,7 +27,7 @@ import eu.agilejava.mvc.part1.PartOneController;
 import eu.agilejava.mvc.part2.PartTwoAdvancedController;
 import eu.agilejava.mvc.part3.ConfirmationController;
 import eu.agilejava.mvc.part2.PartTwoSimpleController;
-import eu.agilejava.mvc.part3.ReservationController;
+import eu.agilejava.mvc.part3.BirthdayRegistrationController;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -50,7 +50,7 @@ public class ApplicationConfig extends Application {
         set.add(PartOneController.class);
         set.add(PartTwoSimpleController.class);
         set.add(PartTwoAdvancedController.class);
-        set.add(ReservationController.class);
+        set.add(BirthdayRegistrationController.class);
         set.add(ConfirmationController.class);
         set.add(PrimitiveConverterProvider.class);
         return set;

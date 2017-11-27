@@ -16,6 +16,7 @@
         <h1>Simple Form</h1>
 
         <form method="post" action="">
+            <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
             <p>
                 <label id="item">First Name:</label>
                 <input type="text" name="firstName" value="${hello.firstName}" />

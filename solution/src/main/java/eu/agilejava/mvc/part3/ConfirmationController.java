@@ -27,6 +27,7 @@ import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
 import javax.mvc.annotation.View;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 /**
@@ -42,7 +43,13 @@ public class ConfirmationController {
     
     @GET
     @View("part_3_confirmation.jsp")
-    public void confirm() {
+    public void display() {
     
+    }
+    
+    @POST
+    public String confirm() {
+        
+        return "part_3_greeeings_jsp";
     }
 }

@@ -46,7 +46,7 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
  */
 @Controller
 @Path("reservations")
-public class ReservationController {
+public class BirthdayRegistrationController {
 
     @Inject
     private Reservation reservation;
@@ -79,13 +79,10 @@ public class ReservationController {
         reservation.setOutside(form.isOutside());
 
         if (br.isFailed()) {
-            messages.setErrors(
-                    br.getAllValidationErrors().stream()
-                            .collect(toList()));
-
+            messages.setErrors(br.getAllValidationErrors().stream().collect(toList()));
             return Response.status(BAD_REQUEST).entity("part_3_reservation_form.jsp").build();
         }
-        System.out.println(reservation.isOutside());
+        
         reservationService.save(reservation);
 
         return Response.ok("redirect:confirmation").build();
