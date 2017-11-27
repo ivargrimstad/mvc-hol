@@ -23,6 +23,7 @@
  */
 package eu.agilejava.mvc.part3;
 
+import eu.agilejava.mvc.Messages;
 import static java.util.stream.Collectors.toList;
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;

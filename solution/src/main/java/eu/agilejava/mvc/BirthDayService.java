@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Ivar Grimstad (ivar.grimstad@gmail.com).
+ * Copyright 2017 Ivar Grimstad (ivar.grimstad@gmail.com).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,36 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.agilejava.mvc.part2;
+package eu.agilejava.mvc;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-@Named
 @RequestScoped
-public class HelloBean {
-
-    private String firstName;
-    private String lastName;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+public class BirthDayService {
+    
+    
+    public int calculateDaysToBirthday(final String birthDate) {
+     
+        return 0;
+    }    
 }

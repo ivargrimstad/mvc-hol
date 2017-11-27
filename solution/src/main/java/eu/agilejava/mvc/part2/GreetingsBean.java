@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 Ivar Grimstad (ivar.grimstad@gmail.com).
+ * Copyright 2015 Ivar Grimstad (ivar.grimstad@gmail.com).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,35 +23,21 @@
  */
 package eu.agilejava.mvc.part2;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Ivar Grimstad (ivar.grimstad@gmail.com)
  */
-public class HelloForm {
+@Named("greeting")
+@RequestScoped
+public class GreetingsBean {
 
-    @NotNull
-    @Size(min = 2, max = 30)
-    @FormParam("firstName")
     private String firstName;
-
-    @NotNull
-    @Size(min = 2, max = 30)
-    @FormParam("lastName")
     private String lastName;
-
-    @NotNull
-    @Size(min = 3)
-    @FormParam("country")
     private String country;
-
-    @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "Enter a valid date")
-    @FormParam("date")
-    private String birthDate;
+    private int daysToBirthday;
 
     public String getFirstName() {
         return firstName;
@@ -77,11 +63,13 @@ public class HelloForm {
         this.country = country;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public int getDaysToBirthday() {
+        return daysToBirthday;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setDaysToBirthday(int daysToBirthday) {
+        this.daysToBirthday = daysToBirthday;
     }
+
+    
 }

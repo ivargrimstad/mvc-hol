@@ -33,6 +33,11 @@
                 <font color="red">${mvc.encoders.html(messages.getMessage("country"))}</font>
             </p>
             <p>
+                <label id="date">Birth Date</label>
+                <input type="date" name="birthDate" value="${hello.birthDate}"/>
+                <font color="red">${mvc.encoders.html(messages.getMessage("birthDate"))}</font>
+            </p>
+            <p>
                 <input type="submit" value="Save" name="button"/>
             </p>
         </form>
