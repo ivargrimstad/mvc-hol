@@ -52,7 +52,6 @@ public class ApplicationConfig extends Application {
         set.add(PartTwoAdvancedController.class);
         set.add(PartThreeGreetingController.class);
         set.add(PartThreeConfirmationController.class);
-        set.add(PrimitiveConverterProvider.class);
         return set;
     }
 

@@ -34,10 +34,19 @@ import javax.inject.Named;
 @RequestScoped
 public class GreetingsBean {
 
+    private String uuid;
     private String firstName;
     private String lastName;
     private String country;
     private int daysToBirthday;
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -71,5 +80,4 @@ public class GreetingsBean {
         this.daysToBirthday = daysToBirthday;
     }
 
-    
 }

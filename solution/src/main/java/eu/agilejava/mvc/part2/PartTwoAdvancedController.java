@@ -25,6 +25,7 @@ package eu.agilejava.mvc.part2;
 
 import eu.agilejava.mvc.BirthDayService;
 import eu.agilejava.mvc.Messages;
+import java.util.UUID;
 import static java.util.stream.Collectors.toList;
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
@@ -75,7 +76,7 @@ public class PartTwoAdvancedController {
         greeting.setLastName(helloForm.getLastName());
         greeting.setCountry(helloForm.getCountry());
         greeting.setDaysToBirthday(birthdayService.calculateDaysToBirthday(helloForm.getBirthDate()));
-
+        greeting.setUuid(UUID.randomUUID().toString());
         return "part_2_advanced_hello.jsp";
     }
 }

@@ -14,6 +14,7 @@
     <body>
         <h1>Hello ${greeting.firstName} ${greeting.lastName} from ${greeting .country}</h1>
         <p>Your birthday is in ${greeting.daysToBirthday} days!</p>
+        <p> greeting is registered with id: <font color="blue">A${greeting.uuid}</font></p>
     </body>
 
 </html>
