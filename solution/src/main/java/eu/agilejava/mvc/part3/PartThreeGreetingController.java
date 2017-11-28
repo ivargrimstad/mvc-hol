@@ -25,16 +25,16 @@ package eu.agilejava.mvc.part3;
 
 import eu.agilejava.mvc.BirthDayService;
 import eu.agilejava.mvc.Messages;
+import java.util.ResourceBundle;
 import java.util.UUID;
 import static java.util.stream.Collectors.toList;
 import javax.inject.Inject;
+import javax.mvc.MvcContext;
 import javax.mvc.annotation.Controller;
 import javax.mvc.annotation.CsrfValid;
 import javax.mvc.annotation.View;
 import javax.mvc.binding.BindingResult;
 import javax.validation.Valid;
-import static javax.validation.executable.ExecutableType.NONE;
-import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -58,6 +58,9 @@ public class PartThreeGreetingController {
 
     @Inject
     private BindingResult br;
+    
+    @Inject
+    private MvcContext ctx;
 
     @Inject
     private BirthDayService birthdayService;
@@ -71,7 +74,7 @@ public class PartThreeGreetingController {
     @CsrfValid
     @POST
     @Path("new")
-    @ValidateOnExecution(type = NONE)
+//    @ValidateOnExecution(type = NONE) // May be used for WildFly, but will not currently work for Glassfish
     public Response hello(@Valid @BeanParam HelloForm helloForm) {
 
         if (br.isFailed()) {
@@ -81,10 +84,13 @@ public class PartThreeGreetingController {
 
         greeting.setFirstName(helloForm.getFirstName());
         greeting.setLastName(helloForm.getLastName());
-        greeting.setCountry(helloForm.getCountry());
+        greeting.setCountry(ctx.getLocale().getDisplayCountry());
         greeting.setDaysToBirthday(birthdayService.calculateDaysToBirthday(helloForm.getBirthDate()));
         greeting.setUuid(UUID.randomUUID().toString());
 
+        ResourceBundle greetings = ResourceBundle.getBundle("greetings", ctx.getLocale());
+        greeting.setText(greetings.getString("greeting"));
+        
         return Response.ok("redirect:part-3/confirmation").build();
     }
 }

@@ -31,8 +31,6 @@ import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
 import javax.mvc.binding.BindingResult;
 import javax.validation.Valid;
-import static javax.validation.executable.ExecutableType.NONE;
-import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -64,7 +62,7 @@ public class PartTwoAdvancedController {
     }
 
     @POST
-    @ValidateOnExecution(type = NONE)
+//    @ValidateOnExecution(type = NONE) // May be used for WildFly, but will not currently work for Glassfish
     public String hello(@Valid @BeanParam HelloForm helloForm) {
 
         if (br.isFailed()) {

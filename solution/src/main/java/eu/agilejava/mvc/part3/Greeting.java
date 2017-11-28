@@ -42,6 +42,7 @@ public class Greeting implements Serializable {
     private String lastName;
     private String country;
     private int daysToBirthday;
+    private String text;
 
     public String getUuid() {
         return uuid;
@@ -83,4 +84,11 @@ public class Greeting implements Serializable {
         this.daysToBirthday = daysToBirthday;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

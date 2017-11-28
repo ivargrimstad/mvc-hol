@@ -27,6 +27,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import org.mvcspec.ozark.binding.convert.MvcBinding;
 
 /**
  *
@@ -34,21 +35,19 @@ import javax.ws.rs.FormParam;
  */
 public class HelloForm {
 
+    @MvcBinding
     @NotNull
     @Size(min = 2, max = 30)
     @FormParam("firstName")
     private String firstName;
 
+    @MvcBinding
     @NotNull
     @Size(min = 2, max = 30)
     @FormParam("lastName")
     private String lastName;
 
-    @NotNull
-    @Size(min = 3)
-    @FormParam("country")
-    private String country;
-
+    @MvcBinding
     @NotNull
     @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "Enter a valid date")
     @FormParam("birthDate")
@@ -68,14 +67,6 @@ public class HelloForm {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getBirthDate() {
