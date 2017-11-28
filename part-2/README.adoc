@@ -36,36 +36,33 @@ Your birthday is in [x] days!
 A greeting is registered with id: [UUID]
 ```
 
-TIP: The default validation error handling in JAX-RS is a one-size-fits-all approach.
+. Create a form bean class with the attributes in the form
+. Add validation to the attributes, such as *not null*, *length*, *pattern* etc.
+. Map the validation errors to the attributes in the form e.g. by creating a CDI scoped messages class for this purpose.
+. Create a CDI scoped been to send information back to the greetings view.
 
-``` Sample convenience Class for messages
-@Named
-@RequestScoped
-public class Messages implements Serializable {
+TIP: The default validation error handling in JAX-RS is a one-size-fits-all approach that can be disabled with the `@ValidateOnExecution(type = NONE)` annotation. 
 
-    private static final long serialVersionUID = 601263646224546642L;
+Due to issues witih Jersey, the annotation-based approach does not work, so validation will have to be disabled globally
+by XML configuration. Create a file called `validation.xml` in the `src/main/resources/META-INF` folder.
 
-    private List<ValidationError> errors = new ArrayList<>();
+``` Workaround for GlassFish
+<?xml version="1.0" encoding="UTF-8"?>
+<validation-config xmlns="http://jboss.org/xml/ns/javax/validation/configuration"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/configuration validation-configuration-1.1.xsd"
+                   version="1.1">
 
-    public void setErrors(List<ValidationError> messages) {
-        this.errors = messages;
-    }
-    
-    public List<String> getErrors() {
-        return errors.stream()
-                .map(ValidationError::getMessage)
-                .collect(toList());
-    }
-    
-    public String getMessage(String param) {
-        return errors.stream()
-                .filter(v -> v.getParamName().equals(param))
-                .map(ValidationError::getMessage)
-                .findFirst()
-                .orElse("");
-    }
-}
+  <executable-validation enabled="true">
+    <default-validated-executable-types>
+      <executable-type>NONE</executable-type>
+    </default-validated-executable-types>
+  </executable-validation>
+
+</validation-config>
 ```
+
+Use this provided service implementation to calculate number of days to next birthday (or feel free to implement your own...).
 
 ``` Sample Service for calculating days to birthday
 @RequestScoped
@@ -84,9 +81,6 @@ public class BirthDayService {
     }
 }
 ```
-
-== i18n
-Duke wants 
 
 == Resources
 
