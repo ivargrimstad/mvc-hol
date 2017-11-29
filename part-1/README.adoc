@@ -23,8 +23,6 @@ Choose one of the view tecnologies supported by Ozark.
  Hello, World!
 ```
 
-TIP: Ozark is split into separate dependencies for running with Jersey and RESTEasy respectively.
-
 === Query Parameters
 Extend the controller from part 1 to read in a name from a query parameter. 
 Use this name to create a personalized greeting, such as 'Hello Duke'.
@@ -40,3 +38,106 @@ TIP: MVC 1.0 builds on JAX-RS
 
 - [ ] Introduction link:MVC1_0-HOL-part1.pdf[slides]
 - [ ] link:https://github.com/mvc-spec/mvc-spec/blob/master/spec/src/main/asciidoc/spec.asciidoc[JSR 371 Specification Document]
+
+TIP: Ozark is split into separate dependencies for running with Jersey and RESTEasy respectively.
+
+``` dependencies
+   <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <version.ozark>1.0.0-m03-SNAPSHOT</version.ozark>
+    </properties>
+
+  <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <version>7.0</version>
+                <scope>provided</scope>
+            </dependency>    
+            <dependency>
+                <groupId>javax.mvc</groupId>
+                <artifactId>javax.mvc-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mvc-spec.ozark</groupId>
+                <artifactId>ozark-core</artifactId>
+                <version>${version.ozark}</version>
+            </dependency>  
+            <dependency>
+                <groupId>org.mvc-spec.ozark</groupId>
+                <artifactId>ozark-jersey</artifactId>
+                <version>${version.ozark}</version>
+            </dependency>  
+            <dependency>
+                <groupId>org.mvc-spec.ozark</groupId>
+                <artifactId>ozark-resteasy</artifactId>
+                <version>${version.ozark}</version>
+            </dependency>  
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+      
+        <dependency>
+            <groupId>javax.mvc</groupId>
+            <artifactId>javax.mvc-api</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.mvc-spec.ozark</groupId>
+            <artifactId>ozark-core</artifactId>
+        </dependency>  
+    </dependencies>
+```
+``` repository definition
+ <repositories>
+        <repository>
+            <id>sonatype-oss-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+```
+
+``` profiles for GlassFish and WildFly
+  <profiles>
+        <profile>
+            <id>glassfish</id>
+            <activation>
+                <activeByDefault>true></activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.mvc-spec.ozark</groupId>
+                    <artifactId>ozark-jersey</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        
+        <profile>
+            <id>wildfly</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.mvc-spec.ozark</groupId>
+                    <artifactId>ozark-resteasy</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+```
