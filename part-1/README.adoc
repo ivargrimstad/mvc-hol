@@ -38,6 +38,7 @@ TIP: MVC 1.0 builds on JAX-RS
 
 - [ ] Introduction link:MVC1_0-HOL-part1.pdf[slides]
 - [ ] link:https://github.com/mvc-spec/mvc-spec/blob/master/spec/src/main/asciidoc/spec.asciidoc[JSR 371 Specification Document]
+- [ ] link:https://github.com/ivargrimstad/mvc-hol/tree/start/solution[Empty Project]
 
 TIP: Ozark is split into separate dependencies for running with Jersey and RESTEasy respectively.
 
