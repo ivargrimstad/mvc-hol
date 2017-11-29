@@ -48,5 +48,5 @@ Convert your application (or parts of it) to another view engine supported by Oz
 
 == Resources
 
-- [ ] Introduction slides
-- [ ] JSR 371 Specification Document sections
+- [ ] Introduction link:MVC1_0-HOL-part3.pdf[slides]
+- [ ] link:https://github.com/mvc-spec/mvc-spec/blob/master/spec/src/main/asciidoc/spec.asciidoc[JSR 371 Specification Document]

@@ -84,7 +84,7 @@ public class BirthDayService {
 
 == Resources
 
-- [ ] Introduction slides
+- [ ] Introduction link:MVC1_0-HOL-part2.pdf[slides]
 - [ ] JSR 371 Specification Document sections
 - [ ]
 
