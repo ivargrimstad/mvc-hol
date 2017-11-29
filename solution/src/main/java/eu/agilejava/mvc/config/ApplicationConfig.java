@@ -23,10 +23,7 @@
  */
 package eu.agilejava.mvc.config;
 
-import eu.agilejava.mvc.part1.PartOneController;
-import eu.agilejava.mvc.part2.PartTwoAdvancedController;
 import eu.agilejava.mvc.part3.PartThreeConfirmationController;
-import eu.agilejava.mvc.part2.PartTwoSimpleController;
 import eu.agilejava.mvc.part3.PartThreeGreetingController;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -47,9 +44,6 @@ public class ApplicationConfig extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> set = new HashSet<>();
-        set.add(PartOneController.class);
-        set.add(PartTwoSimpleController.class);
-        set.add(PartTwoAdvancedController.class);
         set.add(PartThreeGreetingController.class);
         set.add(PartThreeConfirmationController.class);
 
