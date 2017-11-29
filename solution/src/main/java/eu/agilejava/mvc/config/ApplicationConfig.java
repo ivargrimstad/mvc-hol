@@ -36,7 +36,6 @@ import javax.mvc.security.Csrf;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import org.mvcspec.ozark.Properties;
-import org.mvcspec.ozark.bootstrap.OzarkCoreFeature;
 
 /**
  *
@@ -53,9 +52,6 @@ public class ApplicationConfig extends Application {
         set.add(PartTwoAdvancedController.class);
         set.add(PartThreeGreetingController.class);
         set.add(PartThreeConfirmationController.class);
-
-        // Only required for Wildfly if you register resources manually via this method
-        //set.add(OzarkCoreFeature.class);
 
         return set;
     }
