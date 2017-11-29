@@ -8,10 +8,8 @@
     </head>
     <body>
         <ul>
-            <li><a href="app/part-1">Part 1</a></li>
             <li><a href="app/part-2/simple">Part 2 (Simple)</a></li>
             <li><a href="app/part-2/advanced">Part 2 (Advanced)</a></li>
-            <li><a href="app/part-3/greeting/new">Part 3</a></li>
         </ul>
     </body>
 </html>
