@@ -70,7 +70,7 @@
         <profile>
             <id>glassfish</id>
             <activation>
-                <activeByDefault>true></activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <dependencies>
                 <dependency>
