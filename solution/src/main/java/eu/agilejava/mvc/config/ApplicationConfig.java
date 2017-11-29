@@ -24,19 +24,12 @@
 package eu.agilejava.mvc.config;
 
 import eu.agilejava.mvc.part1.PartOneController;
-import eu.agilejava.mvc.part2.PartTwoAdvancedController;
-import eu.agilejava.mvc.part3.PartThreeConfirmationController;
-import eu.agilejava.mvc.part2.PartTwoSimpleController;
-import eu.agilejava.mvc.part3.PartThreeGreetingController;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import javax.mvc.security.Csrf;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import org.mvcspec.ozark.Properties;
-import org.mvcspec.ozark.bootstrap.OzarkCoreFeature;
 
 /**
  *
@@ -49,13 +42,6 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> set = new HashSet<>();
         set.add(PartOneController.class);
-        set.add(PartTwoSimpleController.class);
-        set.add(PartTwoAdvancedController.class);
-        set.add(PartThreeGreetingController.class);
-        set.add(PartThreeConfirmationController.class);
-
-        // Only required for Wildfly if you register resources manually via this method
-        //set.add(OzarkCoreFeature.class);
 
         return set;
     }
@@ -64,11 +50,6 @@ public class ApplicationConfig extends Application {
     public Map<String, Object> getProperties() {
         final Map<String, Object> map = new HashMap<>();
 
-        // use cookie for redirect
-        map.put(Properties.REDIRECT_SCOPE_COOKIES, true);
-
-        // explicit CSRF Protection
-        map.put(Csrf.CSRF_PROTECTION, Csrf.CsrfOptions.EXPLICIT);
         return map;
     }
 }
