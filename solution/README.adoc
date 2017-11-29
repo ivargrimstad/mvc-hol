@@ -1,6 +1,10 @@
 = Solution
 
-== Not finished with the exercises yet...? Try a little more before you look link:.[here] :)
+== Not finished with the exercises yet...? Try a little more before you look :)
+
+* link:https://github.com/ivargrimstad/mvc-hol/tree/solution/part-1/solution[Solution for Part 1]
+* link:https://github.com/ivargrimstad/mvc-hol/tree/solution/part-2/solution[Solution for Part 2]
+* link:https://github.com/ivargrimstad/mvc-hol/tree/solution/part-3/solution[Solution for Part 3]
 
 This appication forms a combined solution for all the exercises in this course.
 Feel free to use it as a reference or starting point when creating applications.
