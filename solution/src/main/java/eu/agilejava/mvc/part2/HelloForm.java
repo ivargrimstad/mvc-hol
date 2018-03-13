@@ -23,11 +23,11 @@
  */
 package eu.agilejava.mvc.part2;
 
+import javax.mvc.binding.MvcBinding;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
-import org.mvcspec.ozark.binding.convert.MvcBinding;
 
 /**
  *

@@ -25,9 +25,7 @@ package eu.agilejava.mvc.part3;
 
 import javax.inject.Inject;
 import javax.mvc.annotation.Controller;
-import javax.mvc.annotation.View;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 /**

@@ -74,7 +74,6 @@ public class PartThreeGreetingController {
     @CsrfValid
     @POST
     @Path("new")
-//    @ValidateOnExecution(type = NONE) // May be used for WildFly, but will not currently work for Glassfish
     public Response hello(@Valid @BeanParam HelloForm helloForm) {
 
         if (br.isFailed()) {
